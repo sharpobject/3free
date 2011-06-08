@@ -1,0 +1,75 @@
+Design changes:
+
+Let's give the functions parameters, at least until it's working.
+
+Previous versions would perform the same exclusion again and again during a given choose() call.  Why not perform each possible exclusion, then OR the results together to get the new usable array to pass to the new choose() calls?  This decreases the number of excludeBit() calls dramatically, and eliminates the need for excludeByte().
+This method ignores something very important: 3APs beginning with two terms in the same bitmask.  For example, if used[0]=10000011, the number 8 (which would result in 100000111..., a 3AP) is NOT excluded.  The effects of ignoring this are limited to the very next level, so such effects can be avoided by making (usable) work in such a way that only those candidates for the next level which are compatible with the current level are considered (and it already does this).  So while the cantUse array will be technically wrong, the program will produce correct results because the limited scope of error is entirely covered by the structure of (usable).  While this was originally intended to prevent 3APs in which the last two terms are in one byte, it works just as well at preventing 3APs in which the first two terms are in one byte and the last one is in the next byte.
+
+Pruning can wait until it's working.  Really.
+Pruning ideas:
+Quit a branch when N-1 becomes excluded (because 0 and N-1 must be used)
+Exclude (N-1)/2 before starting for odd N (because 0 and N-1 would create a 3AP with it) (all this does is stop branches with (N-1)/2 before the prior method would stop them, but this pruning method can be implemented outside of choose(), so it will save non-constant time while eating O(1) time for each root-level choose() call)
+If we have chosen c and we need to choose (k=goal-c) out of the remaining m numbers, quit if a(m)<k.  This should offer a HUGE boost, and improves itself dynamically based on previous results.
+
+Pass the array of choices to a choose() call.
+
+To eliminate some need for special handling at the leaf-level choose() calls, disallow all the numbers outside the bounds before making the root-level choose() call.
+
+
+Static variables:
+
+int start
+for timing!
+
+int lastLevel
+the last level to consider!
+
+unsigned char[32] used
+Global variable represents which numbers have already been chosen in bitmask form.  used[0] represents 0...7, used[3] represents 24...31, etc.
+
+int NChosen
+# 1 bits in used.
+
+unsigned char[256][256][] usable
+Bitmasks.  usable[a][b] is an array of bitmasks usable after bitmask a and given usability bitmask (which is stored reversed) b.  The array is sorted descendingly by number of one bits.
+
+int[256][256] usableSize
+usableSize[a][b] is the size of usable[a][b].
+
+int ones[256]
+ones[i] is the number of one bits in i.
+
+unsigned char[] startingArray
+Bitmasks.  Contains all the bitmasks potentially used at the first level.  Because sets which increase the maximum size must contain both the upper and lower bound, these sets all contain 0, so they all are of form 1xxx xxxx.
+
+int startingArraySize
+size of startingArray!
+
+int N
+represents the bound of the set, [0,N) from which numbers are chosen, also the size of the set (when expressed as [0,N-1]).
+
+int goal
+the size of the 3-free set that choose() is attempting to make.  Because a(n+1) is either a(n) or a(n)+1, this is always set to a(N-1)+1.  If choose() is unsuccessful, the conclusion is that a(N)=a(N-1) by process of elimination, and goal remains unchanged while N increments.
+
+
+Functions:
+
+int main(args don't matter)
+dispatches choose() calls, keeps track of the target of each one, times them, reports results, terminates when the choose() call on size 256 terminates and results are reported.
+
+boolean choose(int level,unsigned char* choices,int nchoices,unsigned char* cantUse)
+level=index of used to be chosen.  When level=0, we are choosing which of 0...7 to use, when level=3, we are choosing which of 24...31 to use.
+choices is an array of possible choices that fit with the previous byte of used and the relevant byte of cantUse.
+nchoices is the size of choices.
+cantUse is a bitmask array of size 32, stored backwards, (cantUse[31] represents 7...0, cantUse[0] represents 255...248).  1 bits mean unusable, 0 bits mean usable.
+Returns true a set of size (goal) can be chosen for given N, uses recursion on each of the elements of (choices).
+The pruning based on NChosen and the pruning based on whether N-1 has been excluded will be implemented in this function.
+
+initialize()
+reads usable,usableSize from a file.
+
+reset(unsigned char* cantUse)
+zeros used, initializes cantUse for N by zeroing it, placing 1's outside the bounds, resets time, sets goal, sets lastLevel, zeros NChosen. (Will implement the pruning idea where (N-1)/2 is excluded in this function)
+
+excludeBit(int whichBit,unsigned char* cantUse)
+Excludes those numbers in cantUse which would be in 3AP with whichBit and some lower term if whichBit were chosen next.

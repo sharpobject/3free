@@ -1,0 +1,7 @@
+6480000
+6490000
+6500000
+FFFFF 6502029 FFFFF
+Press any key to continue...
+
+^^^# lines in F:\onesortedfile\sortedfile.txt^^^

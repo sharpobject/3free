@@ -1,0 +1,203 @@
+Looking for a set of size 5 in 1...9: It exists.
+1 2 4 8 9 
+(0.00 seconds)
+Looking for a set of size 6 in 1...10: There isn't one.
+(0.00 seconds)
+Looking for a set of size 6 in 1...11: It exists.
+1 2 4 5 10 11 
+(0.00 seconds)
+Looking for a set of size 7 in 1...12: There isn't one.
+(0.00 seconds)
+Looking for a set of size 7 in 1...13: It exists.
+1 2 4 5 10 11 13 
+(0.00 seconds)
+Looking for a set of size 8 in 1...14: It exists.
+1 2 4 5 10 11 13 14 
+(0.00 seconds)
+Looking for a set of size 9 in 1...15: There isn't one.
+(0.00 seconds)
+Looking for a set of size 9 in 1...16: There isn't one.
+(0.00 seconds)
+Looking for a set of size 9 in 1...17: There isn't one.
+(0.00 seconds)
+Looking for a set of size 9 in 1...18: There isn't one.
+(0.00 seconds)
+Looking for a set of size 9 in 1...19: There isn't one.
+(0.00 seconds)
+Looking for a set of size 9 in 1...20: It exists.
+1 2 6 7 9 14 15 18 20 
+(0.00 seconds)
+Looking for a set of size 10 in 1...21: There isn't one.
+(0.00 seconds)
+Looking for a set of size 10 in 1...22: There isn't one.
+(0.00 seconds)
+Looking for a set of size 10 in 1...23: There isn't one.
+(0.00 seconds)
+Looking for a set of size 10 in 1...24: It exists.
+1 2 5 7 11 16 18 19 23 24 
+(0.00 seconds)
+Looking for a set of size 11 in 1...25: There isn't one.
+(0.00 seconds)
+Looking for a set of size 11 in 1...26: It exists.
+1 2 5 7 11 16 18 19 23 24 26 
+(0.00 seconds)
+Looking for a set of size 12 in 1...27: There isn't one.
+(0.00 seconds)
+Looking for a set of size 12 in 1...28: There isn't one.
+(0.00 seconds)
+Looking for a set of size 12 in 1...29: There isn't one.
+(0.00 seconds)
+Looking for a set of size 12 in 1...30: It exists.
+1 3 4 8 9 11 20 22 23 27 28 30 
+(0.00 seconds)
+Looking for a set of size 13 in 1...31: There isn't one.
+(0.00 seconds)
+Looking for a set of size 13 in 1...32: It exists.
+1 2 4 8 9 11 19 22 23 26 28 31 32 
+(0.00 seconds)
+Looking for a set of size 14 in 1...33: There isn't one.
+(0.00 seconds)
+Looking for a set of size 14 in 1...34: There isn't one.
+(0.00 seconds)
+Looking for a set of size 14 in 1...35: There isn't one.
+(0.01 seconds)
+Looking for a set of size 14 in 1...36: It exists.
+1 2 4 8 9 13 21 23 26 27 30 32 35 36 
+(0.00 seconds)
+Looking for a set of size 15 in 1...37: There isn't one.
+(0.00 seconds)
+Looking for a set of size 15 in 1...38: There isn't one.
+(0.00 seconds)
+Looking for a set of size 15 in 1...39: There isn't one.
+(0.00 seconds)
+Looking for a set of size 15 in 1...40: It exists.
+1 2 4 5 10 11 13 14 28 29 31 32 37 38 40 
+(0.00 seconds)
+Looking for a set of size 16 in 1...41: It exists.
+1 2 4 5 10 11 13 14 28 29 31 32 37 38 40 41 
+(0.00 seconds)
+Looking for a set of size 17 in 1...42: There isn't one.
+(0.00 seconds)
+Looking for a set of size 17 in 1...43: There isn't one.
+(0.00 seconds)
+Looking for a set of size 17 in 1...44: There isn't one.
+(0.02 seconds)
+Looking for a set of size 17 in 1...45: There isn't one.
+(0.00 seconds)
+Looking for a set of size 17 in 1...46: There isn't one.
+(0.01 seconds)
+Looking for a set of size 17 in 1...47: There isn't one.
+(0.02 seconds)
+Looking for a set of size 17 in 1...48: There isn't one.
+(0.09 seconds)
+Looking for a set of size 17 in 1...49: There isn't one.
+(0.11 seconds)
+Looking for a set of size 17 in 1...50: There isn't one.
+(0.19 seconds)
+Looking for a set of size 17 in 1...51: It exists.
+1 2 4 5 11 12 15 16 32 34 37 38 43 45 46 50 51 
+(0.00 seconds)
+Looking for a set of size 18 in 1...52: There isn't one.
+(0.11 seconds)
+Looking for a set of size 18 in 1...53: There isn't one.
+(0.20 seconds)
+Looking for a set of size 18 in 1...54: It exists.
+1 2 5 6 12 14 15 17 21 31 38 39 42 43 49 51 52 54 
+(0.03 seconds)
+Looking for a set of size 19 in 1...55: There isn't one.
+(0.05 seconds)
+Looking for a set of size 19 in 1...56: There isn't one.
+(0.31 seconds)
+Looking for a set of size 19 in 1...57: There isn't one.
+(0.28 seconds)
+Looking for a set of size 19 in 1...58: It exists.
+1 2 5 6 12 14 15 17 21 31 38 39 42 43 49 51 52 54 58 
+(0.06 seconds)
+Looking for a set of size 20 in 1...59: There isn't one.
+(0.13 seconds)
+Looking for a set of size 20 in 1...60: There isn't one.
+(0.39 seconds)
+Looking for a set of size 20 in 1...61: There isn't one.
+(0.44 seconds)
+Looking for a set of size 20 in 1...62: There isn't one.
+(1.56 seconds)
+Looking for a set of size 20 in 1...63: It exists.
+1 2 5 7 11 16 18 19 24 26 38 39 42 44 48 53 55 56 61 63 
+(0.20 seconds)
+Looking for a set of size 21 in 1...64: There isn't one.
+(0.91 seconds)
+Looking for a set of size 21 in 1...65: There isn't one.
+(0.89 seconds)
+Looking for a set of size 21 in 1...66: There isn't one.
+(2.13 seconds)
+Looking for a set of size 21 in 1...67: There isn't one.
+(3.00 seconds)
+Looking for a set of size 21 in 1...68: There isn't one.
+(7.80 seconds)
+Looking for a set of size 21 in 1...69: There isn't one.
+(11.09 seconds)
+Looking for a set of size 21 in 1...70: There isn't one.
+(28.47 seconds)
+Looking for a set of size 21 in 1...71: It exists.
+1 2 5 7 10 17 20 22 26 31 41 46 48 49 53 54 63 64 68 69 71 
+(3.02 seconds)
+Looking for a set of size 22 in 1...72: There isn't one.
+(14.11 seconds)
+Looking for a set of size 22 in 1...73: There isn't one.
+(14.08 seconds)
+Looking for a set of size 22 in 1...74: It exists.
+1 2 7 9 10 14 20 22 23 25 29 46 50 52 53 55 61 65 66 68 73 74 
+(12.08 seconds)
+Looking for a set of size 23 in 1...75: There isn't one.
+(5.48 seconds)
+Looking for a set of size 23 in 1...76: There isn't one.
+(14.17 seconds)
+Looking for a set of size 23 in 1...77: There isn't one.
+(13.91 seconds)
+Looking for a set of size 23 in 1...78: There isn't one.
+(39.11 seconds)
+Looking for a set of size 23 in 1...79: There isn't one.
+(46.69 seconds)
+Looking for a set of size 23 in 1...80: There isn't one.
+(196.00 seconds)
+Looking for a set of size 23 in 1...81: There isn't one.
+(183.84 seconds)
+Looking for a set of size 23 in 1...82: It exists.
+1 2 4 8 9 11 19 22 23 26 28 31 49 57 59 62 63 66 68 71 78 81 82 
+(16.61 seconds)
+Looking for a set of size 24 in 1...83: There isn't one.
+(95.53 seconds)
+Looking for a set of size 24 in 1...84: It exists.
+1 3 4 8 9 16 18 21 22 25 30 37 48 55 60 63 64 67 69 76 77 81 82 84 
+(43.28 seconds)
+Looking for a set of size 25 in 1...85: There isn't one.
+(20.73 seconds)
+Looking for a set of size 25 in 1...86: There isn't one.
+(64.41 seconds)
+Looking for a set of size 25 in 1...87: There isn't one.
+(79.81 seconds)
+Looking for a set of size 25 in 1...88: There isn't one.
+(269.81 seconds)
+Looking for a set of size 25 in 1...89: There isn't one.
+(233.91 seconds)
+Looking for a set of size 25 in 1...90: There isn't one.
+(586.97 seconds)
+Looking for a set of size 25 in 1...91: There isn't one.
+(890.89 seconds)
+Looking for a set of size 25 in 1...92: It exists.
+1 2 6 8 9 13 19 21 22 27 28 39 58 62 64 67 68 71 73 81 83 86 87 90 92 
+(239.39 seconds)
+Looking for a set of size 26 in 1...93: There isn't one.
+(255.08 seconds)
+Looking for a set of size 26 in 1...94: There isn't one.
+(829.25 seconds)
+Looking for a set of size 26 in 1...95: It exists.
+1 2 4 5 10 11 22 23 25 26 31 32 55 56 64 65 67 68 76 77 82 83 91 92 94 95 
+(13.50 seconds)
+Looking for a set of size 27 in 1...96: There isn't one.
+(323.64 seconds)
+Looking for a set of size 27 in 1...97: There isn't one.
+(347.78 seconds)
+Looking for a set of size 27 in 1...98: There isn't one.
+(791.76 seconds)
+Looking for a set of size 27 in 1...99: 
