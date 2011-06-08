@@ -84,8 +84,6 @@ bool dfs(const int n)
 bool dfs(const int idx, const int n)
 #endif //TEMPLATE_HACK
 {
-    if(banned[idx][ARR_LEN-1]&((0x80) >> ((N_BOWLS-1) % 8)))
-        return false;
     const int bans = banned[idx][idx];
     // We'll use this later -- see comments around line 95
     //const int n_flips = (ARR_LEN-(((ARR_LEN)>>(31))&(ARR_LEN)))-idx;
@@ -139,6 +137,8 @@ bool dfs(const int idx, const int n)
             // banned array, but that should be safe.
             for(j=1; j<=n_flips; j++)
                 reflect(placed_so_far[idx-j], word, &(banned[idx+1][idx+j-1]));
+            if(banned[idx+1][ARR_LEN-1]&((0x80) >> ((N_BOWLS-1) % 8)))
+                goto continue_outer;
 #ifdef TEMPLATE_HACK
             if(dfs<idx+1>(n-bitcnt))
 #else
