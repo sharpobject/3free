@@ -8,8 +8,8 @@
 #define TEMPLATE_HACK
 #define min(x,y) (x)+((((y)-(x))>>(31))&((y)-(x)))
 #define uchar unsigned char
-#define N_BOWLS 117
-#define N_ORANGES 31
+#define N_BOWLS 138
+#define N_ORANGES 34
 #define ARR_LEN ((N_BOWLS + 7)/8)
 #define INT_ARR_LEN ((ARR_LEN + 3) / 4)
 #define PADDED_ARR_LEN (INT_ARR_LEN * 4)
@@ -49,7 +49,8 @@ int set_size[256] = {0,1,2,2,3,4,4,4,4,5,5,6,6,7,8,8,8,8,8,8,9,9,9,9,10,
  29,29,29,
  30,30,30,30,30,30,30,
  31,
- 32,32,32,32,32,32,32,32,32,32,32,32,32,32,32};
+ 32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,
+ 33};
 
 vector<uchar> first_level_array;
 
@@ -262,7 +263,7 @@ int main()
     int result = dfs<0>(N_ORANGES);
 #else
     int result = dfs(0,N_ORANGES);
-#endif
+#endif //TEMPLATE_HACK
 
     ptime end(microsec_clock::universal_time());
 
