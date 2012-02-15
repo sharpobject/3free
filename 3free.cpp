@@ -6,14 +6,13 @@
 #include <boost/date_time/posix_time/posix_time_types.hpp>
 
 #define TEMPLATE_HACK
-#define min(x,y) (x)+((((y)-(x))>>(31))&((y)-(x)))
-#define uchar unsigned char
-#define N_BOWLS 138
-#define N_ORANGES 34
-#define ARR_LEN ((N_BOWLS + 7)/8)
-#define INT_ARR_LEN ((ARR_LEN + 3) / 4)
-#define PADDED_ARR_LEN (INT_ARR_LEN * 4)
-#define HIGH_BIT 0x80
+typedef unsigned char uchar;
+int const N_BOWLS = 116;
+int const N_ORANGES = 31;
+int const ARR_LEN = ((N_BOWLS + 7)/8);
+int const INT_ARR_LEN = ((ARR_LEN + 3) / 4);
+int const PADDED_ARR_LEN = (INT_ARR_LEN * 4);
+int const HIGH_BIT = 0x80;
 
 using namespace boost::posix_time;
 using namespace std;
@@ -58,7 +57,7 @@ vector<uchar> first_level_array;
 // 3AP = Arithmetic progression of length 3.
 vector<uchar> byte_3AP;
 // Reflects a about b into c and the following 2 bytes.
-void reflect(const uchar a, const uchar b, uchar* const c)
+void reflect(uchar const a, uchar const b, uchar* const c)
 {
     int buf = 0;
     int base = ((int) rev[a]) << 15;
@@ -72,28 +71,29 @@ void reflect(const uchar a, const uchar b, uchar* const c)
 
 inline void cpy(int *a,int *b)
 {
-    for(int i=0;i<INT_ARR_LEN;i++)
-        *(b++)=*(a++);
+    *b = *a;
+    for(int i=1;i<INT_ARR_LEN;++i)
+        *(++b)=*(++a);
 }
 
 // Calculates the number of three-free sets given the current state,
 // placing the remaining n items in slots beginning at idx.
 #ifdef TEMPLATE_HACK
-template <const int idx>
-bool dfs(const int n)
+template <int const idx>
+bool dfs(int const n)
 #else
-bool dfs(const int idx, const int n)
+bool dfs(int const idx, int const n)
 #endif //TEMPLATE_HACK
 {
-    const int bans = banned[idx][idx];
+    int const bans = banned[idx][idx];
     // We'll use this later -- see comments around line 95
-    //const int n_flips = (ARR_LEN-(((ARR_LEN)>>(31))&(ARR_LEN)))-idx;
-    //const int n_flips = idx-(((ARR_LEN-2*idx)>>(31))&(ARR_LEN-2*idx));
-    //const int junk = ARR_LEN-idx;
-    //const int n_flips = min(idx,junk);
-    const int n_flips = idx<ARR_LEN-idx ? idx : ARR_LEN-idx;
+    //int const n_flips = (ARR_LEN-(((ARR_LEN)>>(31))&(ARR_LEN)))-idx;
+    //int const n_flips = idx-(((ARR_LEN-2*idx)>>(31))&(ARR_LEN-2*idx));
+    //int const junk = ARR_LEN-idx;
+    //int const n_flips = min(idx,junk);
+    int const n_flips = idx<ARR_LEN-idx ? idx : ARR_LEN-idx;
     // For each word that is actually available to us...
-    BOOST_FOREACH(const uchar word, idx?three_free[bans]:first_level_array)
+    BOOST_FOREACH(uchar const word, idx?three_free[bans]:first_level_array)
     {
         // This is a bit involved.  The banning array works by banning bits
         // outright, but what if we really need to ban a certain combination
@@ -110,12 +110,12 @@ bool dfs(const int idx, const int n)
          remaining m numbers, quit if a(m)<k.  This should offer a HUGE boost,
          and improves itself dynamically based on previous results.*/
 
-        const int bitcnt = bits[word];
+        int const bitcnt = bits[word];
 
         if(set_size[N_BOWLS-((idx+1)<<3)]<n-bitcnt)
             return false;
         int j;
-        for(j=1;j<8;j++)
+        for(j=1;j<8;++j)
             if(set_size[N_BOWLS-((idx+1)<<3)+j]<n-bits[word&(0xff<<j)])
                 goto continue_outer;
 
@@ -136,7 +136,7 @@ bool dfs(const int idx, const int n)
             // (the number of things to the right + 1).
             // This does pollute memory at the beginning of the next
             // banned array, but that should be safe.
-            for(j=1; j<=n_flips; j++)
+            for(j=1; j<=n_flips; ++j)
                 reflect(placed_so_far[idx-j], word, &(banned[idx+1][idx+j-1]));
             if(banned[idx+1][ARR_LEN-1]&((0x80) >> ((N_BOWLS-1) % 8)))
                 goto continue_outer;
@@ -164,7 +164,7 @@ continue_outer:;
 
 #ifdef TEMPLATE_HACK
 template <>
-bool dfs<ARR_LEN>(const int n)
+bool dfs<ARR_LEN>(int const n)
 {
     // Terminal condition.
     return !n;
@@ -183,7 +183,7 @@ int main()
     uchar junk[41]={216, 209, 204, 202, 198, 197, 195, 180, 177,
     166, 165, 163, 153, 141, 139, 208, 200, 196, 194, 193, 176, 164, 162, 161, 152,
     148, 145, 140, 138, 137, 134, 133, 131, 192, 160, 144, 136, 132, 130, 129, 128};
-    for(int i=0;i<41;i++)
+    for(int i=0;i<41;++i)
         first_level_array.push_back(junk[i]);
 
     memset(&placed_so_far, 0, ARR_LEN);
@@ -219,7 +219,7 @@ int main()
         three_free[0].push_back(candidate);
     }
     for(int i=1; i<256; ++i)
-        for(int j=0; j<three_free[0].size(); j++)
+        for(int j=0; j<three_free[0].size(); ++j)
             if((three_free[0][j] & i) == 0)
                 three_free[i].push_back(three_free[0][j]);
 
@@ -236,7 +236,7 @@ int main()
                     next_word_bans[three_free[0][k]] |= bad_bit;
         }
 
-    for(int i=0;i<256;i++)
+    for(int i=0;i<256;++i)
     {
         sort(three_free[i].begin(), three_free[i].end(), compare);
     }
